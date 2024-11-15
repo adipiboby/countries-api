@@ -57,4 +57,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`).then((
 })
 themeChanger.addEventListener('click',()=>{
     document.body.classList.toggle('dark')
+    localStorage.setItem('themeChanger',document.body.classList)
+    
 })
+document.body.classList = localStorage.getItem('themeChanger')

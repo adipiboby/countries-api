@@ -3,6 +3,11 @@ const filterByRegion = document.querySelector(".filter-by-region")
 let allCountriesData
 const searchInput=document.querySelector(".search-container input")
 const themeChanger=document.querySelector(".theme-changer")
+
+const themeChanger1={
+    themechanger: document.body.classList.toggle('dark')
+}
+
 fetch("https://restcountries.com/v3.1/all")
 .then((response)=>response.json())
 .then((data)=>{
@@ -43,5 +48,7 @@ renderCountries(filterCountries)
 
 themeChanger.addEventListener('click',()=>{
     document.body.classList.toggle('dark')
+    localStorage.setItem('themeChanger',document.body.classList)
 })
-
+document.body.classList = themeChanger1.themechanger
+document.body.classList = localStorage.getItem('themeChanger')
